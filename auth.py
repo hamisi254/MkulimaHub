@@ -568,44 +568,7 @@ def predict():
             predicted_idx = torch.argmax(probabilities).item()
             confidence = probabilities[predicted_idx].item() * 100
         
-        if CLASS_LABELS[predicted_idx] == "Cashew anthracnose":
-            medicine = "fungicides containing compounds like mancozeb, carbendazim, or copper-based compounds in severe cases"
-        elif CLASS_LABELS[predicted_idx] == "Cashew gumosis":
-            medicine="fungicides like benomyl, carbendazim, or copper oxychloride"
-        elif CLASS_LABELS[predicted_idx] == "Cashew leaf miner":
-            medicine="consider using neem oil or insecticides like Lambda cyhalothrin or acetamiprid, or exploring biological control methods like introducing beneficial insects or parasites"
-        elif CLASS_LABELS[predicted_idx] == "Cashew red rust":
-            medicine="fungicides and good sanitation practices are recommended, including pruning affected branches, applying Bordeaux paste to cut surfaces, and potentially spraying with Bordeaux mixture"
-        elif CLASS_LABELS[predicted_idx] == "Cassava bacterial blight":
-            medicine="here's no direct chemical medicine for cassava bacterial blight but control measures include removing infected plants, practicing crop rotation, using disease-free planting material, and potentially intercropping with other plants."
-        elif CLASS_LABELS[predicted_idx] == "Cassava brown spot":
-            medicine="fungicides like thiophanate, chlorothalonil, or copper-based fungicides"
-        elif CLASS_LABELS[predicted_idx] == "Cassava green mite":
-            medicine="For controlling the cassava green mite (Mononychellus tanajoa), consider an integrated approach that includes biological control, cultural practices, and, if necessary, selective chemical treatments, focusing on methods that minimize resistance and harm to beneficial insects"
-        elif CLASS_LABELS[predicted_idx] == "Cassava mosaic":
-            medicine="While there's no direct medicine to cure cassava mosaic disease (CMD), control strategies focus on prevention and managing the whitefly vector, which transmits the virus. Key methods include using virus-resistant cassava varieties, phytosanitation practices, and controlling the whitefly population."
-        elif CLASS_LABELS[predicted_idx] == "Maize fall armyworm":
-            medicine=" consider using insecticide combinations like Escort 50 EC + Integra, Occasion Star 200 SC + Integra, Indoking 300 SC + Integra, Legacy Extreme 500 WDG + Integra, or Ranger 480 EC + Integra, following label instructions and using protective gear. "
-        elif CLASS_LABELS[predicted_idx] == "Maize grasshoper":
-            medicine="consider using insecticides like FORTENZA™ Duo (cyantraniprole and thiamethoxam) for seed treatment, or foliar sprays with products containing chlorantraniliprole, emamectin benzoate, or lufenurone"
-        elif CLASS_LABELS[predicted_idx] == "Maize leaf beetle":
-            medicine="consider using neem products, applying Bacillus thuringiensis tenebrionis (e.g., Bypel 1), or using traps baited with 2-phenyl ethanol"
-        elif CLASS_LABELS[predicted_idx] == "Maize leaf blight":
-            medicine="consider fungicides like mancozeb, chlorothalonil, or systemic options such as azoxystrobin, tebuconazole, and trifloxystrobin, and always consult with local agricultural authorities for the best recommendations"
-        elif CLASS_LABELS[predicted_idx] == "Maize leaf spot":
-            medicine="consider fungicides like mancozeb, chlorothalonil, or combinations of triazole and benzimidazole fungicides, along with preventive measures like crop rotation, and using resistant varietie"
-        elif CLASS_LABELS[predicted_idx] == "Maize streak virus":
-            medicine="There isn't a medicine or chemical treatment to cure maize streak virus (MSV) once the plants are infected, but you can manage the disease by using resistant maize varieties, controlling leafhopper vectors, and practicing good crop management"
-        elif CLASS_LABELS[predicted_idx] == "Tomato leaf blight":
-            medicine="fungicides like benomyl, carbendazim, or copper oxychloride"
-        elif CLASS_LABELS[predicted_idx] == "Tomato leaf curl":
-            medicine="For managing tomato leaf curl, which is often caused by the Tomato Yellow Leaf Curl Virus (TYLCV) spread by whiteflies, focus on controlling the whitefly population, as there's no cure for the virus itself once a plant is infecte"
-        elif CLASS_LABELS[predicted_idx] == "Tomato septoria leaf spot":
-            medicine="consider fungicides containing chlorothalonil, copper, or mancozeb, applied preventatively before symptoms appear, or consider organic options like potassium bicarbonate or copper-based fungicides. "
-        elif CLASS_LABELS[predicted_idx] == "Tomato verticulium wilt":
-            medicine="There's no cure for Verticillium wilt once a tomato plant is infected"
-        else:
-            medicine=""
+        
         record = {
             'filename': filename,
             'prediction': CLASS_LABELS[predicted_idx],
