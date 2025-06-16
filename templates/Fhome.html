@@ -1,0 +1,67 @@
+{% extends "FdashNav.html" %}{% block head %}{{super()}}
+    <style>
+        body{
+            &::-webkit-scrollbar {
+                display: none;
+            }
+            scrollbar-width: none;
+    
+            -ms-overflow-style: none;  
+        }
+        .scrollable-container {
+            max-height: 80vh;        
+            overflow: auto;           
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            scroll-behavior: smooth;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+            scrollbar-width: none;
+    
+            -ms-overflow-style: none;  
+            }
+        .post{
+            padding: 10px;
+            width: 70%;
+            border-radius: 10px;
+            background-color: #392d2d;
+            margin-top: 10px;
+            justify-content: center;
+            margin-bottom: 0;
+        }
+        img{
+            max-width: 360px;
+        }
+
+        p{
+            color: #fff;
+        }
+        small{
+            color: #fff;
+        }
+
+        @media screen and (max-width: 991) {
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+
+    </style>
+{% endblock %}
+{% block content %}
+<div class="scrollable-container">
+    {% for post in posts %}
+    <div class="post">
+        <img src="{{ url_for('static', filename='uploads/' + post.image_filename) }}"> 
+        <p><strong>{{ post.username }}</strong></p>
+        <p>{{ post.caption }}</p>
+        <small>{{ post.timestamp.strftime('%Y-%m-%d %H:%M') }}</small>
+        <br>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

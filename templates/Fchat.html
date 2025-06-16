@@ -1,0 +1,49 @@
+{% extends "FdashNav.html" %}{% block head %}{{super()}}
+    <link rel="stylesheet" href="{{ url_for('static', filename='chat.css') }}">
+{% endblock %}
+{% block content %}
+    <div class="chat-container">
+        <div id="messages">
+            {% for message in messages %}
+                <div class="message {{ 'sent' if message.sender == session.username else 'received' }}">
+                    <p><strong>{{ message.sender }}</strong> - {{ message.timestamp.strftime('%H:%M') }}</p>
+                    <p>{{ message.content }}</p>
+                </div>
+            {% endfor %}
+        </div>
+        <form id="messageForm">
+            <input type="text" id="messageInput" placeholder="Type a message..." required>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script>
+        const receiver = "{{ receiver }}";
+        const socket = io();
+
+        // Join room
+        const room = [sessionStorage.username, receiver].sort().join('_');
+        socket.emit('join', { receiver });
+
+        // Send message
+        document.getElementById('messageForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const content = document.getElementById('messageInput').value;
+            socket.emit('send_message', { receiver, content });
+            document.getElementById('messageInput').value = '';
+        });
+
+        // Receive message
+        socket.on('receive_message', (message) => {
+            const msg = JSON.parse(message);
+            const msgDiv = document.createElement('div');
+            msgDiv.className = msg.sender === sessionStorage.username ? 'message sent' : 'message received';
+            msgDiv.innerHTML = `
+                <p><strong>${msg.sender}</strong> - ${new Date(msg.timestamp).toLocaleTimeString()}</p>
+                <p>${msg.content}</p>
+            `;
+            document.getElementById('messages').appendChild(msgDiv);
+        });
+    </script>
+{% endblock %}

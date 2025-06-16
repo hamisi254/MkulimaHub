@@ -1,0 +1,238 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open sans', sans-serif;
+}
+
+
+
+body{
+    height: 100vh;
+}
+ li{
+    list-style: none;
+ }
+ a{
+    text-decoration: none;
+    color: #160101;
+    font-size: 1rem;
+ }
+
+ a:hover{
+    color: green;
+ }
+
+ header{
+    position: relative;
+    z-index: 100;
+    padding: 0 2rem;
+ }
+
+ .navbar{
+    width: 100%;
+    height: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+ }
+
+ .navbar .logo a{
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: left;
+ }
+ 
+ .navbar .links{
+    display: flex;
+    gap: 2rem;
+ }
+
+ .navbar .toggle_btn{
+    color: #160101;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+ }
+
+ .action_btn{
+    background-color: #46a402;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: scale 0.2 ease;
+ }
+ .action_btn:hover{
+    scale: 1.05;
+    color: #fff;
+ }
+
+ .action_btn:active{
+    scale: 0.95
+ }
+ .signup_btn{
+    background-color: orange;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: scale 0.2 ease;
+ }
+ .signup_btn:hover{
+    scale: 1.05;
+    color: #fff;
+ }
+
+ .signup_btn:active{
+    scale: 0.95
+ }
+ .signup_menu{
+    position: absolute;
+    right: 2rem;
+    height: 0;
+    top: 60px;
+    width: 300px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: height .2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+ }
+ .signup_menu.open{
+    height: auto;
+ }
+ .signup_menu li{
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+
+
+.signin_menu{
+   position: absolute;
+   right: 2rem;
+   height: 0;
+   top: 305px;
+   width: 300px;
+   background: rgba(255, 255, 255, 0.1);
+   backdrop-filter: blur(15px);
+   border-radius: 10px;
+   overflow: hidden;
+   transition: height .2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.signin_menu.open{
+   height: auto;
+}
+.signin_menu li{
+   padding: 0.7rem;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+ 
+ .dropdown_menu{
+    position: absolute;
+    right: 2rem;
+    height: 0;
+    top: 60px;
+    width: 300px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: height .2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+ }
+ .dropdown_menu.open {
+    height: 240px;
+ }
+ .dropdown_menu li{
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+
+ .dropdown_menu .signup_btn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+ }
+ 
+ .container {
+   background-color: #f9f9f9;
+   padding: 20px;
+   border-radius: 5px;
+   box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.form-group {
+   margin-bottom: 15px;
+}
+
+input {
+   width: 100%;
+   padding: 8px;
+   margin-top: 5px;
+}
+
+button {
+   background-color: #4CAF50;
+   color: white;
+   padding: 10px 15px;
+   border: none;
+   border-radius: 4px;
+   cursor: pointer;
+}
+
+button:hover {
+   background-color: #45a049;
+}
+
+footer{
+   background: #333;
+}
+
+.footerBottom{
+   padding: 10px;
+   opacity: 0.7;
+   text-align: center;
+   color: #fff;
+}
+.designer{
+   opacity: 1;
+   color: #888686;
+   font-weight: 400;
+}
+ /*responsive*/
+
+ @media (max-width: 992px){
+    .navbar .links,
+    .navbar .action_btn{
+        display: none;
+    }
+    .navbar .toggle_btn{
+        display: block;
+    }
+    .footerBottom{
+      font-size: 10px;
+    }
+ }
+
+ @media (max-width: 576px){
+    .dropdown_menu{
+        left: 2rem;
+        width: unset;
+    }
+ }

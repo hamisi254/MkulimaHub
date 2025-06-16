@@ -1,0 +1,52 @@
+{% extends "FdashNav.html" %}{% block head %}{{super()}}
+    <title>Crop Disease Diagnosis</title>
+    <style>
+        h2{color: black;}
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .content{ max-width: 90%; background: #fff; border-radius: 10px;}
+        .container { max-width: 600px; margin: 0 auto;}
+        input[type="file"] { margin: 20px 0; }
+        button { padding: 10px 20px; background: #4CAF50; color: white; border: none; }
+        .result { margin-top: 20px; padding: 10px; background: #f0f0f0; }
+    </style>
+{% endblock %}
+{% block content %}
+<div class="content">
+    <div class="container">
+        <h2>Crop Disease Diagnosis<i class="fa-solid fa-bug"></i></h2>
+        <form id="uploadForm">
+            <input type="file" id="fileInput" accept="image/*" required>
+            <button type="button" onclick="uploadImage()">Predict Disease</button>
+        </form>
+        <div class="result" id="result"></div>
+    </div>
+</div>
+    <script>
+        async function uploadImage() {
+            const fileInput = document.getElementById('fileInput');
+            const resultDiv = document.getElementById('result');
+            const file = fileInput.files[0];
+            const formData = new FormData();
+            formData.append('file', file);
+
+            try {
+                const response = await fetch('/predict', { method: 'POST', body: formData });
+                const data = await response.json();
+                
+                // Display medicine recommendation
+                let medicineHtml = '';
+                if (data.medicine) {
+                    medicineHtml = `<p><strong>Recommended Medicine:</strong> ${data.medicine}</p>`;
+                }
+                
+                resultDiv.innerHTML = `
+                    <p><strong>Prediction:</strong> ${data.prediction}</p>
+                    <p><strong>Confidence:</strong> ${data.confidence}</p>
+                    ${medicineHtml}
+                `;
+            } catch (error) {
+                resultDiv.innerHTML = '<p>Error processing image. Please try again.</p>';
+            }
+        }
+    </script>
+{% endblock %}

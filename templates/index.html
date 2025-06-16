@@ -1,0 +1,317 @@
+{% extends "base.html" %}{% block head %}{{super()}}
+<link 
+    rel="stylesheet" 
+    href="{{url_for('static', filename='home.css')}}"
+/>
+{% endblock %}
+{% block content %}
+<main>
+    <section id="home">
+        <div class="carousel">
+            <div class="list">
+                <div class="item">
+                    <img src="static/images/market.jpg">
+                    <div class="content">
+                        <div class="topic">Market</div>
+                        <div class="des">we connect the farmers with buyers creating a virtual and available market for both farmers, buyers and suppliers</div>
+                        <div class="buttons">
+                            <button href="#services">SEE MORE</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="static/images/growth.jpg">
+                    <div class="content">
+                        <div class="topic">Monitor</div>
+                        <div class="des">We equip farmers with</div>
+                        <div class="buttons">
+                            <button href="#services">SEE MORE</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="static/images/community.jpg">
+                    <div class="content">
+                        <div class="topic">Community</div>
+                        <div class="des">We digitally link farmers to stakeholders such as buyers, suppliers, experts, peers enabling them to share ideas and grow together</div>
+                        <div class="buttons">
+                            <button href="#services">SEE MORE</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="static/images/AiDiagnosis.jpg">
+                    <div class="content">
+                        <div class="topic">AI Diagnosis</div>
+                        <div class="des">AI tools analyze crop/plant images to detect diseases, pests, or nutrient deficiencies.</div>
+                        <div class="buttons">
+                            <button href="#services">SEE MORE</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="static/images/tractor.jpg">
+                    <div class="content">
+                        <div class="topic">Suppliers</div>
+                        <div class="des">Connect farmers with suppliers of farm equipments and products</div>
+                        <div class="buttons">
+                            <button href="#services">SEE MORE</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="static/images/WeatherForecast.jpg">
+                    <div class="content">
+                        <div class="topic">Weather <br>Forecast</div>
+                        <div class="des">Using hyperlocal, AI-driven predictions to optimize farming decisions</div>
+                        <div class="buttons">
+                            <button href="#services">SEE MORE</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="static/images/FarmerPost.jpg">
+                    <div class="content">
+                        <div class="topic">FarmPost</div>
+                        <div class="des"> Digital platforms for farmers to sell produce directly to consumers or businesses.</div>
+                        <div class="buttons">
+                            <button href="#services">SEE MORE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="thumbnail">
+                <div class="item">
+                    <img src="static/images/market.jpg">
+                    <div class="content">
+                        <div class="title">
+                            market
+                        </div>
+                        <div class="description">
+                            Creation of market
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="static/images/growth.jpg">
+                    <div class="content">
+                        <div class="title">
+                            Monitor
+                        </div>
+                        <div class="description">
+                            monitor the crop growth
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="static/images/community.jpg">
+                    <div class="content">
+                        <div class="title">
+                            Community
+                        </div>
+                        <div class="description">
+                            bring the people together
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="static/images/AiDiagnosis.jpg">
+                    <div class="content">
+                        <div class="title">
+                            AiDiagnosis
+                        </div>
+                        <div class="description">
+                            diagnos crops using AI
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="static/images/tractor.jpg">
+                    <div class="content">
+                        <div class="title">
+                            Suppliers
+                        </div>
+                        <div class="description">
+                            supply farm products 
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="static/images/WeatherForecast.jpg">
+                    <div class="content">
+                        <div class="title">
+                            Weather forecast
+                        </div>
+                        <div class="description">
+                            get realtime weather forecast
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="static/images/FarmerPost.jpg">
+                    <div class="content">
+                        <div class="title">
+                            Farm post
+                        </div>
+                        <div class="description">
+                            allow farmers to post their products
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="arrows">
+                <button id="prev"><</button>
+                <button id="next">></button>
+            </div>
+            <div class="time"></div>
+
+        </div>
+        <script src="static/js/app.js"></script>
+    </section>
+    <section id="about">
+        <div class="about_us">
+            <div class="container">
+                <div class="row">
+                    <div class="flex">
+                        <h2>About Us</h2>
+                        <h3>Discover everything about us</h3>
+                        <p>Welcome to MkulimaHub , your one-stop web-based platform designed to revolutionize the agricultural ecosystem by fostering collaboration, innovation, and sustainability. Our mission is simple yet impactful: to empower farmers, buyers, suppliers and contractors by providing them with the tools they need to thrive in today’s dynamic agricultural landscape.
+                        </p>
+                        <a href="#" class="learn_btn">LEARN MORE</a>
+                    </div>
+                    <div class="flex">
+                        <img src="static/images/about.jpg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="service">
+        <div class="container">
+            <div id="service-section">
+                <h2>Services</h2>
+                <p id="paragraph">these are the services which our applcation provides to users.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum.
+                </p>
+                <div class="cards">
+                    <div class="card">
+                        <i class="fa-solid fa-cloud-bolt"></i>
+                        <div class="content">
+                            <h3>Weather Forecast</h3>
+                            <p>Access accurate, location-specific weather updates to make informed decisions about planting, irrigation, harvesting, and pest control. Stay ahead of changing conditions and optimize your farming operations for better yields.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <i class="fa-solid fa-magnifying-glass-plus"></i>
+                        <div class="content">
+                            <h3>AI Diagnosis</h3>
+                            <p>Use our advanced image analysis tool powered by machine learning to diagnose plant diseases by simply uploading pictures of affected crops. Receive instant diagnoses and tailored recommendations for treatment, helping you protect your crops and reduce losses.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <i class="fa-solid fa-comments"></i>
+                        <div class="content">
+                            <h3>Chat Room</h3>
+                            <p>Engage in seamless communication with buyers, suppliers, and other stakeholders through our secure chat room feature. Foster stronger relationships, negotiate deals, and resolve queries in real-time.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div class="content">
+                            <h3>Geo Location</h3>
+                            <p>Leverage geolocation technology to connect with farmers, buyers, and suppliers in your region. Reduce logistical challenges, promote local trade, and build a strong network within your community.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <i class="fa-solid fa-shop"></i>
+                        <div class="content">
+                            <h3>Market</h3>
+                            <p>Showcase and sell your farm products directly to buyers through our integrated marketplace. Gain visibility, secure fair prices, and connect with potential customers effortlessly.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <i class="fa-solid fa-image-portrait"></i>
+                        <div class="content">
+                            <h3>Post</h3>
+                            <p>Share information about your farm produce, services, or requirements by posting updates on the platform. Keep stakeholders informed and attract interest from the right audience.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contact">
+        <div class="container">
+            <div class="content">
+                <h2>Contact Us</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure dicta quis nihil.</p>
+            </div>
+            <div class="contain">
+                <div class="contactInfo">
+                    <div class="box">
+                        <div class="icon">
+                            <b></b><i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div class="text">
+                            <h3>Address</h3>
+                            <p>00100 Nakuru Kenya <br>Kabarak University</p>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="icon">
+                            <b></b><i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div class="text">
+                            <h3>Phone</h3>
+                            <p>0714814232</p>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="icon">
+                            <b></b><i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div class="text">
+                            <h3>Email</h3>
+                            <p>mkulimahub@gmail.com</p>
+                        </div>
+                    </div>
+                    <ul class="sci">
+                        <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></i></li>
+                        <li><a href="#"><i class="fa-brands fa-tiktok"></i></a></i></li>
+                    </ul>
+                </div>
+                <div class="contactForm">
+                    <form action="https://formsubmit.co/ed1eb2f940880f3c4c7a2e4c4464eb0a" method="post">
+                        <h2>Send message</h2>
+                        <div class="inputBox">
+                            <input type="text" name="fullnanme" required>
+                            <span>FullName</span>
+                        </div>
+                        <div class="inputBox">
+                            <input type="email" name="email" required>
+                            <span>Email</span>
+                        </div>
+                        <div class="inputBox">
+                            <textarea required></textarea>
+                            <span>Type your message...</span>
+                        </div>
+                        <div class="inputBox">
+                            <input type="submit" value="submit">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

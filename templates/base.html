@@ -1,0 +1,75 @@
+<html lang="en">
+<head>
+    {% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}"/>
+    {% endblock %}
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <a href="{{url_for('main.index')}}">MkulimaHub<i class="fa-solid fa-building-wheat"></i></a>
+            </div>
+            <ul class="links">
+                <li><a href="{{url_for('main.index')}}">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#service">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="action_btn" type="button" data-toggle="dropdown">Signup</button>
+            <div class="toggle_btn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+        <div class="dropdown_menu">
+            <li><a href="{{url_for('main.index')}}">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#service">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><button class="signup_btn" type="button" data-toggle="dropdown">Signup</button></li>
+        </div>
+        <div class="signup_menu">
+            <li><a href="{{url_for('auth.Fsignup')}}">Farmer</a></li>
+            <li><a href="{{url_for('auth.Bsignup')}}">Buyer/supplier</a></li>
+        </div>
+        <div class="signin_menu">
+            <li><a href="{{url_for('auth.Fsignup')}}">Farmer</a></li>
+            <li><a href="{{url_for('auth.Bsignup')}}">Buyer/supplier</a></li>
+        </div>
+    </header>
+    <script>
+        const toggleBtn=document.querySelector('.toggle_btn')
+        const toggleBtnIcon=document.querySelector('.toggle_btn i')
+        const dropDownMenu=document.querySelector('.dropdown_menu')
+        const signupBtn=document.querySelector('.action_btn')
+        const signupMenu=document.querySelector('.signup_menu')
+        const signinBtn=document.querySelector('.signup_btn')
+        const signinMenu=document.querySelector('.signin_menu')
+
+        toggleBtn.onclick=function(){
+            dropDownMenu.classList.toggle('open')
+
+            const isOpen = dropDownMenu.classList.contains('open')
+            toggleBtnIcon.classList=isOpen
+            ? 'fa-solid fa-xmark'
+            : 'fa-solid fa-bars'
+        }
+        signupBtn.onclick=function(){
+            signupMenu.classList.toggle('open')
+        }
+
+        signinBtn.onclick=function(){
+            signinMenu.classList.toggle('open')
+        }
+    </script>
+    {% block content %}{% endblock %}
+    <footer>
+        <div class="footerBottom">
+            <p>Copyright &copy;2025; Designed by <span class="designer">Mob Empire</span></p>
+        </div>
+    </footer>
+</body>
+</html>

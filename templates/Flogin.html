@@ -1,0 +1,40 @@
+{%  extends 'base.html' %}{% block head %}{{super()}}
+<link rel="stylesheet" href="{{url_for('static', filename='auth.css')}}"/>
+{% endblock %}
+{% block content %}
+<section id="login">
+  <body>
+      <div class="wrapper">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <form method="POST">
+          <h2>Farmer Login</h2>
+          <div class="input-field">
+            <input type="number" name="PhoneNumber" required>
+            <label>Phone number</label>
+          </div>
+          <div class="input-field">
+            <input type="password" name="password" required>
+            <label>Password</label>
+          </div>
+          <div class="forget">
+            <label for="remember">
+              <input type="checkbox" id="remember">
+              <p>Remember me</p>
+            </label>
+            <a href="{{url_for('auth.Freset_request')}}">Forgot password?</a>
+          </div>
+          <button type="submit">Log In</button>
+          <div class="register">
+            <p>Don't have an account? <a href="{{url_for('auth.Fsignup')}}">Register</a></p>
+          </div>
+        </form>
+      </div>
+  </body>
+</section>
+{% endblock %}

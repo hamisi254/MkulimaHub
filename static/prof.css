@@ -1,0 +1,47 @@
+.card{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #fff;
+}
+h1{
+    color: #08831b;
+}
+h2{
+    color: #292525;
+}
+p{
+    color: black;
+}
+.card .user i{
+    font-size: 30px;
+    color: #292525;
+}
+
+.edit a{
+    color: #08831b;
+    font-size: medium;
+}
+.edit a:hover{
+    text-decoration: underline;
+}
+
+.logout a{
+    color: #08831b;
+    font-size: medium;
+    transition: 0.2s ease;
+}
+
+.logout a:hover{
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 991) {
+    .card{
+        height: auto;
+    }
+}

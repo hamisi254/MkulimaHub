@@ -1,0 +1,50 @@
+{% extends "BdashNav.html" %}{% block head %}{{super()}}
+    <link rel="stylesheet" href="{{ url_for('static', filename='chat.css') }}">
+    <style>
+        .badge {
+            background: red;
+            color: white;
+            border-radius: 12px;
+            padding: 3px 8px;
+            margin-left: 10px;
+            font-size: 0.8em;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <h1>Inbox</h1>
+    <div class="user-list">
+        {% for user in users %}
+            {% if user.username != session.username %}
+                <div class="user-card" onclick="window.location='/Bchat/{{ user.username }}'">
+                    <h3>{{ user.username }}</h3>
+                    {% if unread_dict[user.username] %}
+                        <span class="badge">{{ unread_dict[user.username] }}</span>
+                    {% endif %}
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    <script>
+        socket.on('new_message', data => {
+            if (window.location.pathname === '/Busers') {
+                const userElement = document.querySelector(
+                    `a[href="/Bchat/${data.sender}"]`
+                );
+                
+                if (userElement) {
+                    let badge = userElement.querySelector('.badge');
+                    
+                    if (badge) {
+                        badge.textContent = parseInt(badge.textContent) + 1;
+                    } else {
+                        badge = document.createElement('span');
+                        badge.className = 'badge';
+                        badge.textContent = '1';
+                        userElement.appendChild(badge);
+                    }
+                }
+            }
+        });
+    </script>
+{% endblock %}

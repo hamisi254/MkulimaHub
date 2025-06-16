@@ -1,0 +1,45 @@
+<html lang="en">
+<head>
+    {% block head %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{url_for('static', filename='nav.css')}}">
+    <title>dashboard</title>
+    {% endblock %}
+</head>
+<body>
+        <div class="side-bar">
+            <ul class="nav-bar">
+                <li class="nav-bar-brand">
+                    <a class="item-icon"><i class="fa-solid fa-building-wheat"></i></a>
+                </li>
+                <li class="nav_item">
+                    <a href="{{url_for('auth.Fhome')}}" class="item-icon"><i class="fa-solid fa-home"></i></a>
+                    <a href="{{url_for('auth.Fhome')}}" class="item-link">Home</a>
+                </li>
+                <li class="nav_item">
+                    <a href="{{url_for('auth.Finbox')}}" class="item-icon"><i class="fa-solid fa-message"></i></a>
+                    <a href="{{url_for('auth.Finbox')}}" class="item-link">messages</a>
+                </li>
+                <li class="nav_item">
+                    <a href="{{url_for('auth.weath')}}" class="item-icon"><i class="fa-solid fa-cloud-bolt"></i></a>
+                    <a href="{{url_for('auth.weath')}}" class="item-link">weather</a>
+                </li>
+                <li class="nav_item">
+                    <a href="{{url_for('auth.AI')}}" class="item-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></a>
+                    <a href="{{url_for('auth.AI')}}" class="item-link">AI</a>
+                </li>
+                <li class="nav_item">
+                    <a href="{{url_for('auth.profile')}}" class="item-icon"><i class="fa-solid fa-user"></i></a>
+                    <a href="{{url_for('auth.profile')}}" class="item-link">profile</a>
+                </li>
+                <a href="{{url_for('auth.post')}}" class="post-btn">
+                    <i class="fa-solid fa-camera"></i>
+                    <div class="text">POST</div>
+                </a>
+            </ul>
+        </div>
+        <div class="main-content">
+            {% block content %}{% endblock %}
+        </div>
+</body>
+</html>

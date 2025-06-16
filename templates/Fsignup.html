@@ -1,0 +1,51 @@
+{% extends 'base.html' %}{% block head %}{{super()}}
+<link rel="stylesheet" href="{{url_for('static', filename='auth.css')}}"/>
+{% endblock %}
+{% block content %}
+<main>
+  <section id="login">
+    <body>
+        <div class="wrapper">
+          {% with messages = get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+                  {% for category, message in messages %}
+                      <div class="alert alert-{{ category }}">{{ message }}</div>
+                  {% endfor %}
+              {% endif %}
+          {% endwith %}
+          <form method="POST">
+            <h2>Farmer Register</h2>
+            <div class="input-field">
+              <input type="text" name="FirstName" required>
+              <label>First Name:</label>
+            </div>
+            <div class="input-field">
+              <input type="text" name="SecondName" required>
+              <label>Second Name:</label>
+            </div>
+            <div class="input-field">
+              <input type="text" name="email" required>
+              <label>Email:</label>
+            </div>
+            <div class="input-field">
+              <input type="text" name="PhoneNumber" required>
+              <label>Phone number:</label>
+            </div>
+            <div class="input-field">
+              <input type="password" name="password" required>
+              <label>Password</label>
+            </div>
+            <div class="input-field">
+              <input type="password" name="ConfirmPassword" required>
+              <label>Confirm password</label>
+            </div>
+            <button type="submit">submit</button>
+            <div class="register">
+              <p>Already have an acount?<a href="{{url_for('auth.Flogin')}}">Login</a></p>
+            </div>
+          </form>
+        </div>
+    </body>
+  </section>
+</main>
+{% endblock %}

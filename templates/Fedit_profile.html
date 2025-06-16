@@ -1,0 +1,44 @@
+{% extends "FdashNav.html" %}{% block head %}{{super()}}
+<style>
+    .card{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        height: 50vh;
+        width: 100%;
+        padding: 10px;
+        border-radius: 10px;
+        background-color: #fff;
+    }
+</style>
+{% endblock %}
+{% block content %}
+<div class="card">
+    <h2>Edit Profile</h2>
+    <form method="POST">
+        <div class="form-group">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <label>Username</label>
+            <input type="text" name="username" value="{{ user.username }}" required>
+        </div>
+        <hr>
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" value="{{ user.email }}" required>
+        </div>
+        <hr>
+        <div class="form-group">
+            <label>Phonenumber</label>
+            <input type="number" name="phonenumber" value="{{ user.phonenumber }}" required>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+    </form>
+</div>
+{% endblock %}
